@@ -19,6 +19,25 @@ The goal of this competition is to identify which driving trips were taken by a 
 
 The data is provided as CSV files (200 for each driver) and contain X and Y position data for the car, each record representing one second of time.  All trips begin at the 0,0 position.
 
+---
+## Initial Exploration
+
+First we'll look at one route made by one driver.
+
+```{r}
+route1 <- read.csv("data/original/drivers/1/1.csv")
+dim(route1)
+head(route1)
+```
+
+---
+
+This route lasted 863 seconds and consists of x and y positions as expected. Now we'll roughly plot this single route:
+
+```{r}
+plot(route1[,"x"], route1[,"y"])
+```
+
 
 
 
