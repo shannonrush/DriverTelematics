@@ -4,7 +4,7 @@ Exploration, analysis, and entries for the [Kaggle competition AXA Driver Telema
 
 ### Exploration and Analysis
 
-Data exploration and analysis can be found on the [gh-pages branch](https://github.com/shannonrush/DriverTelematics/tree/gh-pages) of this repo and published at [http://shannonrush.github.io/DriverTelematics]
+Data exploration and analysis can be found on the [gh-pages branch](https://github.com/shannonrush/DriverTelematics/tree/gh-pages) of this repo and published at http://shannonrush.github.io/DriverTelematics
 
 ### Competition Entries
 
