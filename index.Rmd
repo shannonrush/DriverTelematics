@@ -11,7 +11,13 @@ mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
 ---
 
-## Slide 2
+## Competition Summary
+
+The goal of this competition is to identify which driving trips were taken by a unique driver.  Each anonymized driver is associated with a set of trips, the majority of which were driven by the driver and the remainder were not.
+
+## The Data
+
+The data is provided as CSV files (200 for each driver) and contain X and Y position data for the car, each record representing one second of time.  All trips begin at the 0,0 position.
 
 
 
