@@ -54,11 +54,68 @@ This route lasted 863 seconds and consists of x and y positions as expected. Now
 
 
 ```r
-plot(route1[,"x"], route1[,"y"])
+plot(route1)
 ```
 
 ![plot of chunk unnamed-chunk-2](assets/fig/unnamed-chunk-2.png) 
 
+---
+
+### Possible Features
+
+This route travels out from the initial point, backtracks over the exact same route then continues to another destination. Some possible features we could engineer are:
+
+* Frequency of stops
+* Duration of stops
+* Number of repeated traveling points
+    + backtracking
+* Total time traveling
+* Total time stopped
+* Total meters traveled
+
+---
+
+Now let's pretty up this plot...
+
+```r
+library(ggplot2)
+ggplot(route1, aes(x=x, y=y)) + geom_line(colour=2)
+```
+
+![plot of chunk unnamed-chunk-3](assets/fig/unnamed-chunk-3.png) 
+
+---
+
+...and add more routes
+
+```r
+files <- list.files(path="data/original/drivers/1")
+p <- ggplot()
+for (file in files) {
+    p <- p + geom_path(data=read.csv(paste0("data/original/drivers/1/",file)), aes(x, y), color=unlist(strsplit(file,"[.]"))[1])
+}
+p
+```
+
+![plot of chunk unnamed-chunk-4](assets/fig/unnamed-chunk-4.png) 
+
+---
+
+The goal is to label each route with a probability between 0 (is a planted false trip) and 1 (driven by associated driver).  Two ways to approach this problem are supervised and unsupervised learning techniques.
 
 
+
+With supervised learning each driver's associated routes would be labeled as 1 and a random sampling of routes from other drivers would be labeled as 0. A model would be trained using all the drivers iteratively and then the whole dataset would act as the unlabeled data for the submission.
+
+
+
+Unsupervised learning would use the entirety of the unlabeled dataset and cluster into driver groups. 
+
+
+
+Possibly a mixture of the two approaches could be used, with an unsupervised pass of each group giving a better probability rating than a blind 1 or 0 assumption before the supervised pass.
+
+
+
+With any approach feature engineering will be the key to this problem.  What are the variables that tell us how to identify an individual's driving habits?
 

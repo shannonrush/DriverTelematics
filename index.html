@@ -90,10 +90,82 @@ dim(route1)
   <article data-timings="">
     <p>This route lasted 863 seconds and consists of x and y positions as expected. Now we&#39;ll roughly plot this single route:</p>
 
-<pre><code class="r">plot(route1[,&quot;x&quot;], route1[,&quot;y&quot;])
+<pre><code class="r">plot(route1)
 </code></pre>
 
 <p><img src="assets/fig/unnamed-chunk-2.png" alt="plot of chunk unnamed-chunk-2"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h3>Possible Features</h3>
+  </hgroup>
+  <article data-timings="">
+    <p>This route travels out from the initial point, backtracks over the exact same route then continues to another destination. Some possible features we could engineer are:</p>
+
+<ul>
+<li>Frequency of stops</li>
+<li>Duration of stops</li>
+<li>Number of repeated traveling points
+
+<ul>
+<li>backtracking</li>
+</ul></li>
+<li>Total time traveling</li>
+<li>Total time stopped</li>
+<li>Total meters traveled</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <article data-timings="">
+    <p>Now let&#39;s pretty up this plot...</p>
+
+<pre><code class="r">library(ggplot2)
+ggplot(route1, aes(x=x, y=y)) + geom_line(colour=2)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-3.png" alt="plot of chunk unnamed-chunk-3"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <article data-timings="">
+    <p class='..and'>add more routes</p>
+
+<pre><code class="r">files &lt;- list.files(path=&quot;data/original/drivers/1&quot;)
+p &lt;- ggplot()
+for (file in files) {
+    p &lt;- p + geom_path(data=read.csv(paste0(&quot;data/original/drivers/1/&quot;,file)), aes(x, y), color=unlist(strsplit(file,&quot;[.]&quot;))[1])
+}
+p
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-4.png" alt="plot of chunk unnamed-chunk-4"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <article data-timings="">
+    <p>The goal is to label each route with a probability between 0 (is a planted false trip) and 1 (driven by associated driver).  Two ways to approach this problem are supervised and unsupervised learning techniques.</p>
+
+<p>With supervised learning each driver&#39;s associated routes would be labeled as 1 and a random sampling of routes from other drivers would be labeled as 0. A model would be trained using all the drivers iteratively and then the whole dataset would act as the unlabeled data for the submission.</p>
+
+<p>Unsupervised learning would use the entirety of the unlabeled dataset and cluster into driver groups. </p>
+
+<p>Possibly a mixture of the two approaches could be used, with an unsupervised pass of each group giving a better probability rating than a blind 1 or 0 assumption before the supervised pass.</p>
+
+<p>With any approach feature engineering will be the key to this problem.  What are the variables that tell us how to identify an individual&#39;s driving habits?</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -119,6 +191,30 @@ dim(route1)
       <a href="#" target="_self" rel='tooltip' 
         data-slide=3 title=''>
          3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Possible Features'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title=''>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title=''>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title=''>
+         7
       </a>
     </li>
   </ul>
