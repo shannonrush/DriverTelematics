@@ -103,19 +103,25 @@ p
 
 The goal is to label each route with a probability between 0 (is a planted false trip) and 1 (driven by associated driver).  Two ways to approach this problem are supervised and unsupervised learning techniques.
 
-
-
 With supervised learning each driver's associated routes would be labeled as 1 and a random sampling of routes from other drivers would be labeled as 0. A model would be trained using all the drivers iteratively and then the whole dataset would act as the unlabeled data for the submission.
-
-
 
 Unsupervised learning would use the entirety of the unlabeled dataset and cluster into driver groups. 
 
-
-
 Possibly a mixture of the two approaches could be used, with an unsupervised pass of each group giving a better probability rating than a blind 1 or 0 assumption before the supervised pass.
-
-
 
 With any approach feature engineering will be the key to this problem.  What are the variables that tell us how to identify an individual's driving habits?
 
+---
+
+## Approach 1: Basic Supervision
+* Non-sophisticated labeling
+* Features:
+    - Stop Frequencies
+    - Average Stop Duration
+    - Total Time Stopped
+    - Total Time Traveling
+    - Total Trip Time
+    - Average Travel Speed
+    - Total Distance Traveled
+    - Max Distance From Start Point
+    - Trip Similarity To Other Trips By Driver
