@@ -114,7 +114,6 @@ The first step is creating a new data frame with these columns for each route:
 * TotalDistanceTraveled
 * MaxDistanceFromStart
 * RouteSimilarity
-```{r}
-source("code/features.R")
-```
+
+
 

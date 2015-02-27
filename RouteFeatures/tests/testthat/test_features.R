@@ -7,3 +7,5 @@ test_that("TotalTripTime returns the number of records in route", {
     expect_equal(TotalTripTime(route), nrow(route))
 })
 
+context("Stop Frequency")
+
