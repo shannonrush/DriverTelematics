@@ -8,8 +8,16 @@ TotalTripTime <- function(route) {
 
 ## StopFrequency wants to find the number of stops made during
 ## a trip.  A stop is defined as 1 or more seconds spent traveling
-## 0 distance
+## <= 1.5 m/s
 
 StopFrequency <- function(route) {
-    
+    seconds <- SecondsStopped(DistancesTraveled(route))
+    length(TimePerStop(seconds))
+}
+
+## AverageStopDuration takes a vector of seconds stopped and returns the average
+## number of seconds the driver spent stopped
+
+AverageStopDuration <- function(seconds) {
+    mean(TimePerStop(seconds))
 }
