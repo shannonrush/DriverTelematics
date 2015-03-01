@@ -1,6 +1,6 @@
 Package: RouteFeatures
 Title: Route Feature Engineering
-Version: 0.0.0.1
+Version: 0.0.0.3
 Authors@R: person("Shannon", "Rush", email = "shannonmrush@gmail.com",
                   role = c("aut", "cre"))
 Description: This package houses the functions to engineer features for the kaggle competition Driver Telematics Analysis
