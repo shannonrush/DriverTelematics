@@ -27,8 +27,8 @@ RecordForRoute <- function(driver, route) {
                          "AvgStopDuration" = AverageStopDuration(time.per.stop),
                          "TotalTimeStopped" = total.stopped,
                          "TotalTimeTraveling" = TotalTimeTraveling(total.trip, total.stopped),
-                         "AvgTravelSpeed" = AverageTravelSpeed(route),
-                         "TotalDistanceTraveled" = TotalDistanceTraveled(route),
+                         "AvgTravelSpeed" = AverageTravelSpeed(distances),
+                         "TotalDistanceTraveled" = TotalDistanceTraveled(distances),
                          "MaxDistanceFromStart" = MaxDistanceFromStart(route))
 }
 
